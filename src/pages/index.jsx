@@ -1,16 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Storage from '../redux/redux'
 
 const index = () => {
-    const [ nama, setNama ] = useState('')
+    const [ nama, setNama ] = useState({
+        type : 'SET',
+        nama : null
+    })
+
+    const [ stateChanged, setStateChanged ] = useState(0)
+
+    const [ anotherName, setAnotherName ] = useState(Storage.getState())
+
+    useEffect(() => {
+        setAnotherName(Storage.getState())
+    }, [ stateChanged ])
 
     const submitHandler = e => {
         e.preventDefault()
+        
+        Storage.dispatch(nama)
+
+        setStateChanged(prev => prev + 1)
     }
 
     const namaHandler = e => {
         const Element = e.target
+        const Temp = { ...nama }
 
-        setNama(Element['value'])
+        Temp['nama'] = Element['value']
+
+        setNama(Temp)
     }
 
     return (
@@ -22,7 +41,7 @@ const index = () => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-            <p>Nama : { nama }</p>
+            <p>Nama : { anotherName }</p>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import { createStore } from 'redux'
 
-const setNama = (state = '', action) => {
+const setNama = (state = 'Asep', action) => {
     switch (action['type']) {
         case 'SET' :
-            state = action['name'] 
+            state = action['nama'] 
             return state
         case 'GET' : 
             return state
@@ -13,6 +13,5 @@ const setNama = (state = '', action) => {
 }
 
 const store = createStore(setNama)
-
 
 export default store
