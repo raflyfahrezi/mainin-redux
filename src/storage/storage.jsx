@@ -11,3 +11,5 @@ const getLocalStorage = () => {
         return localStorage.getItem('nama')
     }
 }
+
+export { setLocalStorage, getLocalStorage }
