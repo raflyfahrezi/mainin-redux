@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import Storage from '../redux/redux'
+import React, { useState, useEffect, useRef } from 'react'
+import { SET } from '../redux/action' 
+import Storage from '../redux/store'
 
 const index = () => {
+    const InputNama = useRef()
+
     const [ nama, setNama ] = useState({
-        type : 'SET',
+        type : SET(),
         nama : null
     })
 
@@ -20,6 +23,7 @@ const index = () => {
         
         Storage.dispatch(nama)
 
+        InputNama.current.value = ''
         setStateChanged(prev => prev + 1)
     }
 
@@ -37,7 +41,13 @@ const index = () => {
             <div>
                 <form onSubmit={ submitHandler }>
                     <label>Masukan Nama : </label>
-                    <input type="text" name="nama" id="nama" onChange={ namaHandler }/>
+                    <input 
+                        type="text" 
+                        name="nama" 
+                        id="nama" 
+                        onChange={ namaHandler }
+                        ref={ InputNama }
+                    />
                     <button type="submit">Submit</button>
                 </form>
             </div>
