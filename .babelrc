@@ -2,7 +2,8 @@
     "plugins": [
         [
             "@babel/plugin-transform-react-jsx", {
-                "runtime": "classic"
+                "runtime": "classic",
+                "importSource": "theme-ui"
             }
         ]
     ]
