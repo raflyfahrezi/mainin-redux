@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Storage from '../redux/store'
+import { getLocalStorage } from '../storage/storage'
 
 const index = () => {
     const Router = useRouter()
 
-    const [ anotherName, setAnotherName ] = useState(Storage.getState())
+    const [ name, setName ] = useState('')
+
+
+    useEffect(() => {
+        setName(getLocalStorage())
+    }, [])
 
     return (
         <div>
-            <p>Nama : { anotherName }</p>
+            <p>Nama : { name }</p>
             <button onClick={ () => Router.push('/add') }>Tambah</button>
         </div>
     )
