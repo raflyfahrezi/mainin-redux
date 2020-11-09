@@ -32,8 +32,21 @@ const add = () => {
         setNama(Temp)
     }
 
+    const Container = {
+        width : '100%',
+        maxWidth : '300px',
+        
+        m : '0 auto',
+        p : '30px 0',
+        
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '30px'
+    }
+
     return (
-        <div>
+        <div sx={ Container }>
             <form onSubmit={ submitHandler }>
                 <label>Masukan Nama : </label>
                 <input 
