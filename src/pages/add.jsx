@@ -1,4 +1,6 @@
-import React, {  useRef, useState } from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import Storage from '../redux/store'
 import { SET } from '../redux/action'

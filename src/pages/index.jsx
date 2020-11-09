@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui' 
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 

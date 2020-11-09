@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { Provider } from 'react-redux'
 import Store from '../redux/store'
 import '../styles/globals.css'
