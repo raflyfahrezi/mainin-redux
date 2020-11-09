@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { getLocalStorage } from '../storage/storage'
+import { connect } from 'react-redux'
 
-const index = () => {
+const index = ({ name }) => {
     const Router = useRouter()
-
-    const [ name, setName ] = useState('')
-
-
-    useEffect(() => {
-        setName(getLocalStorage())
-    }, [])
 
     return (
         <div>
@@ -20,4 +13,10 @@ const index = () => {
     )
 }
 
-export default index
+const MapToProps = state => {
+    return {
+        name : state
+    }
+}
+
+export default connect(MapToProps)(index)
